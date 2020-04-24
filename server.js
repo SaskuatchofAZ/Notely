@@ -45,7 +45,7 @@ app.delete(`/api/notes/:id`, function(req, res){
         if (err) throw err;
     });
     let json = JSON.parse(dataBack);
-    finalJson = JSON.stringify(json.filter(element => element.id != req.id));
+    finalJson = JSON.stringify(json.filter(element => element.id != req.params.id));
     fs.writeFileSync(path.join(__dirname, "/db/db.json"), finalJson, err => {
         if (err) throw err;
     });
